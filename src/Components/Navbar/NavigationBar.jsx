@@ -22,10 +22,10 @@ export default function NavigationBar() {
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
-            </Navbar>
                     {/* <div>
                         <hr style={{borderTop:'3px solid white',marginTop:56,marginBottom:0,display:'block',opacity:100}}/>
                     </div> */}
+            </Navbar>
         </>
     )
 }

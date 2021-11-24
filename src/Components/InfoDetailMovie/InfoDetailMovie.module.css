@@ -1,0 +1,32 @@
+.list-info {
+  color: white;
+}
+
+.list-info-title {
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.list-info-genre {
+  font-size: 20px;
+  font-weight: normal;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+.list-info-star,
+.list-info-likes {
+  font-weight: normal;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.list-info-synopsis {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.list-info-isi-synopsis {
+  font-weight: 100;
+  font-size: 16px;
+}
