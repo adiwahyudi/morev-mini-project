@@ -1,0 +1,63 @@
+.judul-atas {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.outline-part {
+  border-radius: 10px;
+  outline: 2px solid #927373;
+  padding: 25px 15px;
+}
+
+.row-nama-bintang {
+  color: white;
+  margin-left: 10px;
+}
+
+.row-isi {
+  color: white;
+  margin-left: 10px;
+}
+
+.col-nama,
+.col-star {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.col-nama {
+  font-weight: 600;
+}
+.col-isi {
+  font-size: 16px;
+  font-weight: 200;
+  white-space: pre-wrap;
+}
+
+.button-edit,
+.button-del {
+  color: white;
+  padding: 3px 15px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.button-del {
+  background-color: red;
+  border: red;
+}
+
+.button-del:hover {
+  background-color: rgb(168, 4, 4);
+  border: rgb(168, 4, 4);
+}
+
+.button-edit {
+  background-color: #03d46c;
+  border: #03d46c;
+}
+
+.button-edit:hover {
+  background-color: #0e9753;
+  border: #0e9753;
+}

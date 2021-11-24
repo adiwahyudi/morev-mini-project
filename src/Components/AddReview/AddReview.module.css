@@ -1,0 +1,30 @@
+.judul-atas {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color: white;
+}
+input,
+textarea {
+  color: white !important;
+}
+textarea {
+  background-color: transparent !important;
+}
+
+::placeholder {
+  color: grey;
+}
+
+.button-submit {
+  color: white;
+  padding: 3px 15px;
+  border-radius: 10px;
+  font-weight: 500;
+  background-color: #03d46c;
+  border: #03d46c;
+}
+
+.button-submit:hover {
+  background-color: #0e9753;
+  border: #0e9753;
+}
