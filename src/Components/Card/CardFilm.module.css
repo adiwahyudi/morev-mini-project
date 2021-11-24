@@ -1,0 +1,21 @@
+.judulAtas {
+  color: white;
+}
+/* .card {
+  
+} */
+
+.cardItem {
+  width: 13rem;
+  background-color: #1a1a1a !important;
+}
+
+.cardTitle,
+.cardTahun {
+  color: white;
+  text-align: center;
+}
+
+.pembungkusCard {
+  padding-bottom: 40px;
+}

@@ -1,0 +1,38 @@
+.judul-atas {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.outline-part {
+  border-radius: 10px;
+  outline: 2px solid #927373;
+  /* height: 300px; */
+  /* padding-bottom: 100px; */
+  /* margin-bottom: 100px; */
+  padding: 25px 10px;
+}
+
+.row-nama-bintang {
+  color: white;
+  margin-left: 10px;
+}
+
+.row-isi {
+  color: white;
+  margin-left: 10px;
+}
+
+.col-nama,
+.col-star {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.col-nama {
+  font-weight: 600;
+}
+.col-isi {
+  font-size: 16px;
+  font-weight: 200;
+  white-space: pre-wrap;
+}
