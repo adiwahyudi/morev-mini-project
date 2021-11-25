@@ -1,9 +1,10 @@
 import { Container } from "react-bootstrap";
 import AddReview from "../../Components/AddReview/AddReview";
+import FooterBasic from "../../Components/Footer/FooterBasic";
 import InfoDetailMovie from "../../Components/InfoDetailMovie/InfoDetailMovie";
 import MyReview from "../../Components/MyReview/MyReview";
 import NavigationBar from "../../Components/Navbar/NavigationBar";
-import UserReview from "../../Components/UserReview/UserReview";
+import UserReview from "../../Components/UserReview/UserReviewItem";
 
 function DetailMovie(){
     return (
@@ -16,6 +17,7 @@ function DetailMovie(){
                     <MyReview/>
                     <AddReview/>
                 </Container>
+                <FooterBasic/>
             </div>
         </div>
     )

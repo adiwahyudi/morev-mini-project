@@ -5,7 +5,6 @@ import LogoImg from "../../Images/thegodfather-thumb.jpg"
 export default function Carousels() {
     return (
         <div>
-            <h3 className="mt-3 px-3" style={{color:'white'}}>Featured Film</h3>
             <Carousel className="mt-3 mb-5">
                 <Carousel.Item>
                     <img
