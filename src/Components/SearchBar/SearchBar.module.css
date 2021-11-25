@@ -1,0 +1,18 @@
+.search-bar {
+  width: fit-content;
+  margin: 5px auto 5px auto;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+input {
+  width: 500px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: black;
+}
+
+input::placeholder {
+  color: grey;
+  font-size: 14px;
+}

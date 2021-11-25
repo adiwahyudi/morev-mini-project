@@ -9,7 +9,7 @@ import { faThumbsUp } from '@fortawesome/free-regular-svg-icons'
 export default function InfoDetailMovie() {
     return (
         <div>
-            <div className="pt-5" style={{paddingTop:100}}>
+            <div className="" style={{paddingTop:75}}>
                 <Row>
                     <Col xl={4}>
                     <img

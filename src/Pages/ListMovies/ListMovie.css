@@ -1,0 +1,12 @@
+.list-film {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-bottom: 10px;
+  grid-gap: 1rem;
+}
+
+.dropdown-sort {
+  color: white;
+  background-color: #1a1a1a;
+  padding: 5px 5px;
+}

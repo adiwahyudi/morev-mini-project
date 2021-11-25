@@ -1,9 +1,12 @@
 .judulAtas {
   color: white;
 }
-/* .card {
-  
-} */
+.pembungkusCard {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+}
 
 .cardItem {
   width: 13rem;
@@ -14,8 +17,4 @@
 .cardTahun {
   color: white;
   text-align: center;
-}
-
-.pembungkusCard {
-  padding-bottom: 40px;
 }
