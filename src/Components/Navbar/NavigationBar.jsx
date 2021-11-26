@@ -1,6 +1,8 @@
 import React from 'react'
 import { Navbar, Container, Nav} from "react-bootstrap";
 import LogoImg from "../../Images/Logox2-Bener.png"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faUser} from '@fortawesome/free-regular-svg-icons'
 export default function NavigationBar() {
     return(
         <>
@@ -21,12 +23,12 @@ export default function NavigationBar() {
                         <Nav.Link href="/" style={{color:'white'}}>Home</Nav.Link>
                         <Nav.Link href="/" style={{color:'white'}}>Top Rated</Nav.Link>
                         <Nav.Link href="/list-movies" style={{color:'white'}}>List Movies</Nav.Link>
+                        <Nav.Link href="/login" style={{color:'white'}}>
+                            <FontAwesomeIcon icon={faUser} fixedWidth />
+                        </Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
-                    {/* <div>
-                        <hr style={{borderTop:'3px solid white',marginTop:56,marginBottom:0,display:'block',opacity:100}}/>
-                    </div> */}
             </Navbar>
         </>
     )

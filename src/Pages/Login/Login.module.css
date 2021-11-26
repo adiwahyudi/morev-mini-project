@@ -1,0 +1,14 @@
+.body {
+  height: 812px;
+}
+
+.form-control {
+  background-color: #1a1a1a;
+}
+input[type="text"] {
+  color: black;
+  background-color: #1a1a1a;
+}
+.btn-suc {
+  width: 100px;
+}
