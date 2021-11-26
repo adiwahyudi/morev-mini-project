@@ -9,7 +9,8 @@
 }
 
 .cardItem {
-  width: 13rem;
+  /* width: 13rem; */
+  border: #1a1a1a;
   background-color: #1a1a1a !important;
 }
 
