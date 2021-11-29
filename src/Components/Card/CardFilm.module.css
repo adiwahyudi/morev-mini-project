@@ -9,7 +9,6 @@
 }
 
 .cardItem {
-  /* width: 13rem; */
   border: #1a1a1a;
   background-color: #1a1a1a !important;
 }
@@ -18,4 +17,9 @@
 .cardTahun {
   color: white;
   text-align: center;
+}
+
+.img-poster {
+  width: 214px;
+  height: 307px;
 }

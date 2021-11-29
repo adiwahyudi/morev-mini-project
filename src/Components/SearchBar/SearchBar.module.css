@@ -6,6 +6,7 @@
 }
 
 input {
+  padding-left: 10px;
   width: 500px;
   background-color: transparent;
   border-radius: 10px;

@@ -8,8 +8,8 @@ export default function Login() {
             <div className={styles.body} style={{color:"white",backgroundColor:"#1a1a1a"}}>
                 <Container className="pt-5">
                     <NavigationBar/>
-                    <h1 className="text-center mb-5 pt-5 fw-bold">Welcome to MO-REV!</h1>
                     <Row>
+                    <h1 className="text-center mb-5 pt-5 fw-bold">Welcome to MO-REV!</h1>
                         <Col md={{ span: 6, offset: 3 }}>
                             <Form>
                                 <Form.Group className="mb-3" controlId="formBasicEmail">

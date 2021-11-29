@@ -1,16 +1,36 @@
+import {useState,useEffect} from 'react'
 import { Col, Container, Row  } from "react-bootstrap"
-import CardFilm from "../../Components/Card/CardFilm"
 import FooterBasic from "../../Components/Footer/FooterBasic"
 import Judul from "../../Components/Judul/Judul"
 import NavigationBar from "../../Components/Navbar/NavigationBar"
 import SearchBar from "../../Components/SearchBar/SearchBar"
+import useGetAllMovies from '../../Hooks/useGetAllMovies'
+import CardFilmList from '../../Components/Card/CardFilmList'
 import "./ListMovie.css"
+import Loading from '../../Components/Loading/Loading'
 
 function ListMovies() {
+    const {
+        dataAllMovies,
+        loadingAllMovies,
+        errorAllMovies
+    } = useGetAllMovies()
+
+    const [movie,setMovie] = useState([]);
+
+    useEffect(() => {
+        if (dataAllMovies) {
+            setMovie(dataAllMovies.movies);
+        }
+    }, [dataAllMovies]);
+
+    if (errorAllMovies) {
+        return <h1>Error</h1>
+    }
     return(
         <>
             <NavigationBar/>
-            <div style={{backgroundColor:"#1a1a1a"}}>
+            <div className="isi pt-1" >
                 <Container>
                     <Row className="mt-2 d-flex">
                         <Col sm={10}>
@@ -28,13 +48,11 @@ function ListMovies() {
                         </Col>
                     </Row>
                     <SearchBar/>
-                    <div className="list-film">
-                    {[...Array(10)].map(card => {
-                        return (
-                            <CardFilm/>
-                        )
-                    })}
-                    </div>
+                    {loadingAllMovies ? (
+                        <Loading/>
+                    ) : (
+                        <CardFilmList films={movie}/>    
+                    )}
                 </Container>
                 <FooterBasic/>
             </div>

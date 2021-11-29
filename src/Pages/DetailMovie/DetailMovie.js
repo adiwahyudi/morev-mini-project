@@ -4,7 +4,7 @@ import FooterBasic from "../../Components/Footer/FooterBasic";
 import InfoDetailMovie from "../../Components/InfoDetailMovie/InfoDetailMovie";
 import MyReview from "../../Components/MyReview/MyReview";
 import NavigationBar from "../../Components/Navbar/NavigationBar";
-import UserReview from "../../Components/UserReview/UserReviewItem";
+import UserReview from "../../Components/UserReview/UserReview";
 
 function DetailMovie(){
     return (

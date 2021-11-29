@@ -5,7 +5,7 @@ import {faSearch } from '@fortawesome/free-solid-svg-icons'
 
 export default function SearchBar() {
     return (
-        <div className={`${styles['search-bar']} px-3`}>
+        <div className={`${styles['search-bar']} px-3 pb-4`}>
           <form className="d-flex" >
               <input 
               type="text"

@@ -10,3 +10,8 @@
   background-color: #1a1a1a;
   padding: 5px 5px;
 }
+
+.isi {
+  background-color: #1a1a1a;
+  min-height: 100vh;
+}

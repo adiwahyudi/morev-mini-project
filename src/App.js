@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
 		<Routes>
 			<Route path="/" exact element={<Home />} />
-			<Route path="/detail-movie" exact element={<DetailMovie />} />
+			<Route path="/detail-movie/:id" exact element={<DetailMovie />} />
 			<Route path="/list-movies" exact element={<ListMovies/>} />
 			<Route path="/login" exact element={<Login/>} />
 		</Routes>
