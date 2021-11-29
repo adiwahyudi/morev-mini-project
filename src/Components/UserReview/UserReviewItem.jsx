@@ -6,13 +6,13 @@ import {faStar} from '@fortawesome/free-solid-svg-icons'
 
 
 export default function UserReviewItem(props) {
-    const {rating,review} = props;
+    const {rating,review,firstName,lastName} = props;
     return (
         <div>
             <div className={styles['outline-part']}>
                 <Row className={styles['row-nama-bintang']}>
                     <Col xs={3} className={styles['col-nama']}>
-                        Adi Wahyudi
+                        {firstName} {lastName}
                     </Col>
                     <Col className={styles['col-star']}>
                         <FontAwesomeIcon icon={faStar} color='yellow'/>
