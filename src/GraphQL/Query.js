@@ -85,6 +85,7 @@ const Get3CommentByMovieId = gql`
 const GetMyReview = gql`
   query MyQuery($id_movie: Int, $id_user: Int) {
     review(where: {id_movies: {_eq: $id_movie}, id_user: {_eq: $id_user}}) {
+      id
       review
       rating
       user {
@@ -94,4 +95,17 @@ const GetMyReview = gql`
     }
   }
 `
-export {GetAllMovies,Get5TopRatedMovies,Get3FeaturedMovies,GetMoviesById,Get3CommentByMovieId,GetMyReview}
+
+const GetMyInformationLogin = gql`
+  query MyQuery($email: String, $password: String) {
+    user(where: {email: {_eq: $email}, password: {_eq: $password}}) {
+      avatar
+      email
+      first_name
+      id
+      last_name
+      password
+    }
+  }
+`
+export {GetAllMovies,Get5TopRatedMovies,Get3FeaturedMovies,GetMoviesById,Get3CommentByMovieId,GetMyReview,GetMyInformationLogin}

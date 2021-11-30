@@ -1,24 +1,25 @@
 import React from 'react'
-import {Card} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import styles from './CardFilm.module.css'
+import CardFilmItem from './CardFilmItem'
+import {Row,Col} from 'react-bootstrap'
 
-export default function CardFilm(props) {
-    const {poster,name,year,id} = props;
-
+export default function CardFilmList(props) {
+    const {films} = props;
+    console.log(films);
     return (
-        <div>
-            <div className={`${styles.pembungkusCard} d-flex`}>
-                <Card className={`${styles.cardItem} mx-3`} >
-                    <Link to={`/detail-movie/${id}`}>
-                        <Card.Img className={styles['img-poster']} variant="top" src={poster} />
-                    </Link>
-                    <Card.Body>
-                        <Card.Title className={styles.cardTitle}>{name}</Card.Title>
-                        <Card.Text className={styles.cardTahun}>{year}</Card.Text>
-                    </Card.Body>
-                </Card>
+        <Row>
+            <Col>
+            <div className="list-film">
+                {films.map((item) => (
+                    <CardFilmItem 
+                        key={item.id}
+                        id={item.id}
+                        poster={item.poster}
+                        name={item.name}
+                        year={item.year}
+                    />
+                ))}
             </div>
-        </div>
+            </Col>
+        </Row>
     )
 }

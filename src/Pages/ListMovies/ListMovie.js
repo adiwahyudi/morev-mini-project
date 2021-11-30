@@ -5,7 +5,7 @@ import Judul from "../../Components/Judul/Judul"
 import NavigationBar from "../../Components/Navbar/NavigationBar"
 import SearchBar from "../../Components/SearchBar/SearchBar"
 import useGetAllMovies from '../../Hooks/useGetAllMovies'
-import CardFilmList from '../../Components/Card/CardFilmList'
+import CardFilm from '../../Components/Card/CardFilm'
 import "./ListMovie.css"
 import Loading from '../../Components/Loading/Loading'
 
@@ -51,7 +51,7 @@ function ListMovies() {
                     {loadingAllMovies ? (
                         <Loading/>
                     ) : (
-                        <CardFilmList films={movie}/>    
+                        <CardFilm films={movie}/>    
                     )}
                 </Container>
                 <FooterBasic/>

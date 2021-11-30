@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react";
 import { Container } from "react-bootstrap";
-import CardFilmList from "../../Components/Card/CardFilmList";
+import CardFilm from "../../Components/Card/CardFilm";
 import Carousels from "../../Components/Carousels/Carousels";
 import Footer from "../../Components/Footer/Footer";
 import Judul from "../../Components/Judul/Judul";
@@ -46,7 +46,7 @@ function Home(){
                     {loadingTop5 ? (
                         <Loading/>
                     ) : (
-                        <CardFilmList 
+                        <CardFilm 
                             films={top5}
                             id="toprated"
                         />   

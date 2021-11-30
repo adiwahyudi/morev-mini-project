@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router";
-import { useEffect,useState } from 'react'
+import { useEffect, useState } from 'react'
 import AddReview from "../../Components/AddReview/AddReview";
 import FooterBasic from "../../Components/Footer/FooterBasic";
 import InfoDetailMovie from "../../Components/InfoDetailMovie/InfoDetailMovie";
@@ -10,67 +10,138 @@ import UserReview from "../../Components/UserReview/UserReview";
 import useGet3CommentByMovieId from '../../Hooks/useGet3CommentByMovieId'
 import useGetMoviesById from '../../Hooks/useGetMoviesById'
 import useGetMyReview from '../../Hooks/useGetMyReview'
+import useInsertReview from "../../Hooks/useInsertReview";
+import useUpdateReview from "../../Hooks/useUpdateReview";
+import useDeleteReview from "../../Hooks/useDeleteReview";
+import Loading from "../../Components/Loading/Loading";
 
-function DetailMovie(){
+function DetailMovie() {
 
     const { id } = useParams();
-    const id_user = 1;
+
+    let id_user = 0;
+
+    if (localStorage.getItem("user_id") !== null ){
+        id_user = localStorage.getItem("user_id")
+    }
+
+    const { dataMoviesById, loadingMoviesById, errorMoviesById } = useGetMoviesById(id)
+    const { dataMovieComment, loadingMovieComment, errorMovieComment } = useGet3CommentByMovieId(id)
+    const { dataMyReview, loadingMyReview, errorMyReview } = useGetMyReview(id, id_user)
     
-    const { dataMoviesById,loadingMoviesById,errorMoviesById} = useGetMoviesById(id)
-    const { dataMovieComment,loadingMovieComment,errorMovieComment} = useGet3CommentByMovieId(id)
-    const { dataMyReview,loadingMyReview,errorMyReview } = useGetMyReview(id,id_user)
+    const {insertReview,loadingInsertReview} = useInsertReview();
+    const {deleteReview,loadingDeleteReview} = useDeleteReview();
+    const {updateReview,loadingUpdateReview} = useUpdateReview();
 
-    const [movById,setMovById] = useState()
-    const [userReview,setUserReview] = useState([])
-    const [myReview,setMyReview] = useState()
+    const [userReview, setUserReview] = useState([])
+    const [myReview, setMyReview] = useState()
 
+    const onSubmitInsertReview = (val) => {
+        insertReview({
+            variables: {...val}
+        })
+    }
+
+    const onUpdateReview = (id,val) => {
+        updateReview({
+            variables:{
+                id,
+                ...val
+            }
+        })
+    }
+
+    const onDeleteReview = (id) => {
+        deleteReview({
+            variables: {id}
+        })
+    }
     useEffect(() => {
-        if (dataMoviesById) {
-            setMovById(dataMoviesById.movies[0]);
-        }
         if (dataMovieComment) {
             setUserReview(dataMovieComment.review);
         }
         if (dataMyReview) {
-            setMyReview(dataMyReview.review);
+            setMyReview(dataMyReview.review[0]);
         }
-    }, [dataMoviesById,dataMovieComment,dataMyReview]);
+    }, [dataMoviesById, dataMovieComment, dataMyReview]);
 
 
-    if (errorMovieComment ){
+    if (errorMovieComment) {
         console.log(errorMovieComment);
         return <h1>Error</h1>
     }
 
-
-    if (errorMoviesById ){
+    if (errorMoviesById) {
         console.log(errorMoviesById);
         return <h1>Error</h1>
     }
 
-    if (errorMyReview ){
+    if (errorMyReview) {
         console.log(errorMyReview);
         return <h1>Error</h1>
     }
-    
+
     return (
         <div>
-            <NavigationBar/>
-            <div style={{backgroundColor:'#1A1A1A'}}>
+            <NavigationBar />
+            <div style={{ backgroundColor: '#1A1A1A' }}>
                 <Container>
-                    <InfoDetailMovie detail={movById}/>
 
-                    <h3 className="mt-4 mb-3" style={{color:"white"}}>User Review</h3>
-                    {userReview.length > 0 ? (
-                        <UserReview urev={userReview}/>
+                    {loadingMoviesById ? (
+                        <Loading />
                     ) : (
-                        <h6 className="text-center fw-light" style={{color:"white"}}>Sorry no one have been review in this for this movie</h6>
+                        <InfoDetailMovie detail={dataMoviesById} />
+
                     )}
-                    {}
-                    <MyReview rev={myReview}/>
-                    <AddReview/>
+
+                    <h3 className="mt-4 mb-3" style={{ color: "white" }}>User Review</h3>
+                    {loadingMovieComment ? (
+                        <Loading />
+                    ) : (
+                        [
+                            (userReview.length > 0 ? (
+                                <UserReview urev={userReview} />
+
+                            ) : (
+                                <h6 className="text-center fw-light" style={{ color: "white" }}>Sorry, no review for this movie</h6>
+                            ))
+                        ]
+                    )}
+
+                    <h3 className="mt-4 mb-3" style={{ color: "white" }}>My Review</h3>
+                    {loadingMyReview ? (
+                        <Loading />
+                    ) : (
+                        [
+                            (myReview !== undefined ? (
+                                <MyReview 
+                                    rev={myReview} 
+                                    loadingDel={loadingDeleteReview}
+                                    onDelete={onDeleteReview}
+                                    onUpdate={onUpdateReview}
+                                />
+                            ) : (
+                                <h6 className="text-center fw-light" style={{ color: "white" }}>You have no review, create a new one!</h6>
+                            ))
+                        ]
+                    )}
+                    <h3 className="mt-4 mb-3" style={{ color: "white" }}>Add Review</h3>
+                    {myReview === undefined ? (
+                        [
+                            (id_user === 0 ? (
+                                <h6 className="text-center fw-light pt-3 mb-5" style={{ color: "white" }}>Sorry, you have to be login!</h6>
+                            ) : (
+                                <AddReview 
+                                    onSubmit={onSubmitInsertReview} 
+                                    loadingInsert={loadingInsertReview}
+                                />
+                            ))
+                        ]
+                        ) : (
+                            <h6 className="text-center fw-light pt-3 mb-5" style={{ color: "white" }}>You've created a review, check on My Review!</h6>
+                        )}
                 </Container>
-                <FooterBasic/>
+                <FooterBasic />
             </div>
         </div>
     )

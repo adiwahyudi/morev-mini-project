@@ -28,3 +28,12 @@ textarea {
   background-color: #0e9753;
   border: #0e9753;
 }
+
+input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}

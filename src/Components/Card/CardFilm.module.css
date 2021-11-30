@@ -1,12 +1,12 @@
 .judulAtas {
   color: white;
 }
-.pembungkusCard {
+/* .pembungkusCard {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   padding-bottom: 40px;
-}
+} */
 
 .cardItem {
   border: #1a1a1a;
@@ -22,4 +22,21 @@
 .img-poster {
   width: 214px;
   height: 307px;
+}
+
+.list-film {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+@media (max-width: 768px) {
+  .list-film {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .list-film {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

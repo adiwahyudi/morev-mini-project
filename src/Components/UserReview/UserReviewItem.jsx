@@ -16,7 +16,7 @@ export default function UserReviewItem(props) {
                     </Col>
                     <Col className={styles['col-star']}>
                         <FontAwesomeIcon icon={faStar} color='yellow'/>
-                        <span style={{fontWeight:600}}> {rating}</span> / 10
+                        <span style={{fontWeight:600}}> {rating}</span> / 5
                     </Col>
                 </Row>
                 <Row className={styles['row-isi']}>

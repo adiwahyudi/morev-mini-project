@@ -3,7 +3,6 @@ import UserReviewItem from './UserReviewItem'
 export default function UserReview(props) {
 
     const {urev} = props;
-    console.log("urev",urev);
     return (    
         <>
             {urev.map((item) => (
