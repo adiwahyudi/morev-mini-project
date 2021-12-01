@@ -108,4 +108,16 @@ const GetMyInformationLogin = gql`
     }
   }
 `
-export {GetAllMovies,Get5TopRatedMovies,Get3FeaturedMovies,GetMoviesById,Get3CommentByMovieId,GetMyReview,GetMyInformationLogin}
+
+const GetMyInformationById = gql`
+  query MyQuery($id: Int) {
+    user(where: {id: {_eq: $id}}) {
+      id
+      first_name
+      last_name
+      email
+      avatar
+    }
+  }
+`
+export {GetAllMovies,Get5TopRatedMovies,Get3FeaturedMovies,GetMoviesById,Get3CommentByMovieId,GetMyReview,GetMyInformationLogin,GetMyInformationById}

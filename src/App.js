@@ -5,6 +5,7 @@ import Home from './Pages/Home/Home';
 import DetailMovie from './Pages/DetailMovie/DetailMovie';
 import ListMovies from './Pages/ListMovies/ListMovie';
 import Login from './Pages/Login/Login';
+import Profile from './Pages/Profile/Profile';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
 			<Route path="/detail-movie/:id" exact element={<DetailMovie />} />
 			<Route path="/list-movies" exact element={<ListMovies/>} />
 			<Route path="/login" exact element={<Login/>} />
+			<Route path="/profile" exact element={<Profile/>} />
 		</Routes>
 	</BrowserRouter>
   );

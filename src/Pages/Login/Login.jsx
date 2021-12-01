@@ -22,7 +22,7 @@ export default function Login() {
             alert("Wrong email or password")
           } else {
             localStorage.setItem("user_id", data?.user[0].id)
-            localStorage.setItem("user_id", data?.user[0].first_name)
+            localStorage.setItem("first_name", data?.user[0].first_name)
             navigate("/");
           }
         }
@@ -32,13 +32,16 @@ export default function Login() {
         if (e.target) {
             setInput({
                 ...input, 
-                [e.target.name]:e.target.value})
+                [e.target.name]:e.target.value
+            })
         }
     }
 
     const onSubmit = (e) => {
         e.preventDefault();
-        getMyInformationLogin({variables: {...input}})
+        getMyInformationLogin(
+            {variables: {...input}}
+        )
         if(error) {
             console.log(error);
         }
@@ -75,7 +78,6 @@ export default function Login() {
                                 </Form.Group>
                                 <div className="justify-content-center pb-5">
                                     <Button className={`${styles['btn-suc']} d-flex justify-content-center primary`} variant="success" type="submit" > Login </Button>
-                                    {/* onClick={getMyInformationLogin} */}
                                 </div>
                             </Form>
                         </Col>

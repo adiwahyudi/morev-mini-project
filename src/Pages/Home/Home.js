@@ -9,8 +9,6 @@ import useGet3Featured from "../../Hooks/useGet3FeaturedMovies";
 import useGetTop5Movies from '../../Hooks/useGet5TopRatedMovies'
 import Loading from "../../Components/Loading/Loading";
 
-import Rating from 'react-rating'
-
 function Home(){
 
     const {dataTop5,loadingTop5,errorTop5} = useGetTop5Movies()
@@ -31,6 +29,14 @@ function Home(){
     if (errorTop5 || errorFeatured3 ) {
         return <h1>Error</h1>
     }
+
+    var settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      };
     return (
         <div>
             <NavigationBar/>

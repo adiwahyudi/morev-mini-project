@@ -1,15 +1,13 @@
 import React, {useState} from 'react'
 import { useParams } from 'react-router'
 import { Form,Button } from 'react-bootstrap'
-// import useInsertReview from '../../Hooks/useInsertReview'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faStar} from '@fortawesome/free-solid-svg-icons'
-import {faStar as starEmpty} from '@fortawesome/free-regular-svg-icons'
 import Rating from 'react-rating'
-
 import styles from './AddReview.module.css'
 
 export default function AddReview(props) {
+    
     const { id } = useParams();
     const id_user = localStorage.getItem("user_id")
     
@@ -19,7 +17,6 @@ export default function AddReview(props) {
         rating:0,
         review:""
     })
-
 
     const onChange = (e) => {
         if (e.target) {
@@ -41,7 +38,7 @@ export default function AddReview(props) {
     const initRating = (rate) => {
         review.rating = rate
     }
-    console.log(review)
+
     return (
         <>
             <Rating 

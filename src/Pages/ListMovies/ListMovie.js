@@ -6,8 +6,8 @@ import NavigationBar from "../../Components/Navbar/NavigationBar"
 import SearchBar from "../../Components/SearchBar/SearchBar"
 import useGetAllMovies from '../../Hooks/useGetAllMovies'
 import CardFilm from '../../Components/Card/CardFilm'
-import "./ListMovie.css"
 import Loading from '../../Components/Loading/Loading'
+import "./ListMovie.css"
 
 function ListMovies() {
     const {
@@ -27,17 +27,19 @@ function ListMovies() {
     if (errorAllMovies) {
         return <h1>Error</h1>
     }
+
     return(
         <>
             <NavigationBar/>
-            <div className="isi pt-1" >
+            <div className="isi pt-2" >
                 <Container>
                     <Row className="mt-2 d-flex">
-                        <Col sm={10}>
-                            <Judul judul="List Movies"/>
+                        <Col xl={5}>
+                            {/* <Judul judul="List Movies"/> */}
+                            <h3 className="mt-5" style={{color:"white"}}>List Movies</h3>
                         </Col>
-                        <Col sm={2}>
-                            <div style={{paddingTop:70}}>
+                        <Col xl={7} className="justify-content-end">
+                            <div className="ms-auto text-end mt-5">
                                 <select className="dropdown-sort">
                                     <option value=""> Ascending </option>
                                     <option value=""> Descending </option>

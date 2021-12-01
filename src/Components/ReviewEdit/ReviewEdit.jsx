@@ -2,21 +2,18 @@ import React, {useState} from 'react'
 import {Form,Button} from 'react-bootstrap'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faStar} from '@fortawesome/free-solid-svg-icons'
-import {faStar as starEmpty} from '@fortawesome/free-regular-svg-icons'
 import Rating from 'react-rating'
 import styles from './ReviewEdit.module.css'
+import Loading from '../Loading/Loading'
 
 export default function ReviewEdit(props) {
 
-    const {id,onClickUpdate,handleClose} = props;
-
-    // const [rating,setRating] = useState(null)
+    const {id,onClickUpdate,handleClose,loadingUpd} = props;
     const [review,setReview] = useState({
         id,
         rating:0,
         review:""
     })
-
 
     const onChange = (e) => {
         if (e.target) {
@@ -28,17 +25,17 @@ export default function ReviewEdit(props) {
     }
 
     const handleEdit = (e) => {
-        console.log("reviewHandleEdit",review);
         onClickUpdate({
             ...review
         })
+        if(loadingUpd) {
+            <Loading/>
+        } 
     }
 
     const initRating = (rate) => {
         review.rating = rate
     }
-
-    console.log("review",review);
 
     return (
         <div>
@@ -47,7 +44,7 @@ export default function ReviewEdit(props) {
                     <span className={styles['close-icon']} onClick={handleClose}>x</span>
                     <h4 className="" style={{ color: "white" }}>Edit Review</h4>
                     <Rating 
-                        emptySymbol={<FontAwesomeIcon icon={starEmpty} size="2x"/>}
+                        emptySymbol={<FontAwesomeIcon icon={faStar} color="grey" size="2x"/>}
                         fullSymbol={<FontAwesomeIcon icon={faStar} color="yellow" size="2x"/>}
                         onChange={(rate) => initRating(rate)}
                         initialRating={review.rating}

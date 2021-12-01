@@ -19,13 +19,13 @@ import Loading from "../../Components/Loading/Loading";
 function DetailMovie() {
 
     const { id } = useParams();
-
+    
     let id_user = 0;
 
     if (localStorage.getItem("user_id") !== null ){
         id_user = localStorage.getItem("user_id")
     }
-
+    
     const { dataMoviesById, loadingMoviesById, errorMoviesById } = useGetMoviesById(id)
     const { dataMovieComment, loadingMovieComment, errorMovieComment } = useGet3CommentByMovieId(id)
     const { dataMyReview, loadingMyReview, errorMyReview } = useGetMyReview(id, id_user)
@@ -81,8 +81,6 @@ function DetailMovie() {
         return <h1>Error</h1>
     }
 
-    console.log("dataMoviesById",dataMoviesById);
-
     return (
         <div>
             <NavigationBar />
@@ -119,6 +117,7 @@ function DetailMovie() {
                                 <MyReview 
                                     rev={myReview} 
                                     loadingDel={loadingDeleteReview}
+                                    loadingUpd={loadingUpdateReview}
                                     onDelete={onDeleteReview}
                                     onUpdate={onUpdateReview}
                                 />
@@ -127,6 +126,7 @@ function DetailMovie() {
                             ))
                         ]
                     )}
+
                     <h3 className="mt-4 mb-3" style={{ color: "white" }}>Add Review</h3>
                     {myReview === undefined ? (
                         [

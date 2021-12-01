@@ -5,10 +5,11 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faStar} from '@fortawesome/free-solid-svg-icons'
 
 import ReviewEdit from '../ReviewEdit/ReviewEdit'
+import Loading from '../Loading/Loading'
 
 export default function MyReview(props) {
 
-    const {rev,onDelete,onUpdate} = props;
+    const {rev,onDelete,onUpdate,loadingDel,loadingUpd} = props;
 
     const [isOpen, setIsOpen] = useState(false);
  
@@ -20,6 +21,9 @@ export default function MyReview(props) {
         onDelete(rev?.id)
     }
 
+    if (loadingDel) {
+        <Loading/>
+    }
     // console.log("ini rev",rev);
 
     return (
@@ -49,7 +53,7 @@ export default function MyReview(props) {
                 </div>
 
             ) : (
-                <ReviewEdit id={rev.id} handleClose={togglePopup} onClickUpdate={onUpdate}/>
+                <ReviewEdit id={rev.id} handleClose={togglePopup} loadingUpd={loadingUpd} onClickUpdate={onUpdate}/>
             )}
         </div>
     )

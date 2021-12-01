@@ -28,7 +28,20 @@ const DeleteReview = gql`
         }
     }
 `
-export {InsertReview,DeleteReview,UpdateReview}
+
+const UpdateUser = gql`
+    mutation UpdateUser($id: Int!, $first_name: String, $last_name: String, $email: String, $avatar: String, $password: String) {
+        update_user_by_pk(pk_columns: {id: $id}, _set: {first_name: $first_name, last_name: $last_name, email: $email, avatar: $avatar, password: $password}) {
+        id
+        first_name
+        last_name
+        email
+        avatar
+        password
+        }
+    } 
+`
+export {InsertReview,DeleteReview,UpdateReview,UpdateUser}
 
     // mutation UpdateReview($id: Int!, $rating: Int!, $review: String) {
     //     update_review_by_pk(pk_columns: {id: $id}, _set: {rating: $rating, review: $review}) {
