@@ -2,15 +2,18 @@ import React, {useState} from 'react'
 import {Form,Button} from 'react-bootstrap'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faStar} from '@fortawesome/free-solid-svg-icons'
+import {faStar as starEmpty} from '@fortawesome/free-regular-svg-icons'
+import Rating from 'react-rating'
 import styles from './ReviewEdit.module.css'
 
 export default function ReviewEdit(props) {
 
     const {id,onClickUpdate,handleClose} = props;
 
-    const [rating,setRating] = useState(null)
+    // const [rating,setRating] = useState(null)
     const [review,setReview] = useState({
-        rating,
+        id,
+        rating:0,
         review:""
     })
 
@@ -18,7 +21,6 @@ export default function ReviewEdit(props) {
     const onChange = (e) => {
         if (e.target) {
             setReview({
-                id,
                 ...review, 
                 [e.target.name]:e.target.value
             })
@@ -28,9 +30,12 @@ export default function ReviewEdit(props) {
     const handleEdit = (e) => {
         console.log("reviewHandleEdit",review);
         onClickUpdate({
-            id,
             ...review
         })
+    }
+
+    const initRating = (rate) => {
+        review.rating = rate
     }
 
     console.log("review",review);
@@ -41,30 +46,12 @@ export default function ReviewEdit(props) {
                 <div className={styles.box}>
                     <span className={styles['close-icon']} onClick={handleClose}>x</span>
                     <h4 className="" style={{ color: "white" }}>Edit Review</h4>
-                    <div className="ini-star">
-                        <div style={{marginTop:10}}>
-                            {[...Array(5)].map((star,idx) => {
-                                const ratingValue = idx + 1
-                                return (
-                                    <label>
-                                        <input 
-                                            type="radio" 
-                                            name="rating" 
-                                            value={ratingValue} 
-                                            onChange={onChange} 
-                                            onClick={() => setRating(ratingValue) }
-                                        />
-                                        <FontAwesomeIcon 
-                                            icon={faStar} 
-                                            className={styles.star} 
-                                            size="2x" 
-                                            color={ratingValue <= rating ? "yellow" : "grey"} 
-                                        />
-                                    </label>
-                                )
-                            })}
-                        </div>
-                     </div>
+                    <Rating 
+                        emptySymbol={<FontAwesomeIcon icon={starEmpty} size="2x"/>}
+                        fullSymbol={<FontAwesomeIcon icon={faStar} color="yellow" size="2x"/>}
+                        onChange={(rate) => initRating(rate)}
+                        initialRating={review.rating}
+                    />
                     <Form>
                         <Form.Group className="py-3" controlId="exampleForm.ControlTextarea1">
                             <Form.Control 

@@ -3,6 +3,7 @@ import {Row,Col} from 'react-bootstrap'
 import styles from './MyReview.module.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faStar} from '@fortawesome/free-solid-svg-icons'
+
 import ReviewEdit from '../ReviewEdit/ReviewEdit'
 
 export default function MyReview(props) {
@@ -15,10 +16,11 @@ export default function MyReview(props) {
       setIsOpen(!isOpen);
     }
     
-
     const onClickDelete = () => {
         onDelete(rev?.id)
     }
+
+    // console.log("ini rev",rev);
 
     return (
         <div>
@@ -47,7 +49,7 @@ export default function MyReview(props) {
                 </div>
 
             ) : (
-                <ReviewEdit id={rev?.id} handleClose={togglePopup} onClickUpdate={onUpdate}/>
+                <ReviewEdit id={rev.id} handleClose={togglePopup} onClickUpdate={onUpdate}/>
             )}
         </div>
     )

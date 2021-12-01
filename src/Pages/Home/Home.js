@@ -9,6 +9,8 @@ import useGet3Featured from "../../Hooks/useGet3FeaturedMovies";
 import useGetTop5Movies from '../../Hooks/useGet5TopRatedMovies'
 import Loading from "../../Components/Loading/Loading";
 
+import Rating from 'react-rating'
+
 function Home(){
 
     const {dataTop5,loadingTop5,errorTop5} = useGetTop5Movies()

@@ -16,6 +16,7 @@
     "graphql": "^16.0.1",
     "react-bootstrap": "^2.0.2",
     "react-multi-carousel": "^2.6.5",
+    "react-rating": "^2.0.5",
     "react-responsive-carousel": "^3.2.22",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",

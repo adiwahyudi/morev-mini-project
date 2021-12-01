@@ -26,7 +26,7 @@ export default function NavigationBar() {
                             <Nav.Link href="#toprated" style={{color:'white'}}>Top Rated</Nav.Link>
                             <Nav.Link href="/list-movies" style={{color:'white'}}>List Movies</Nav.Link>
                             {localStorage.getItem("user_id") !==  null ? (
-                                <Nav.Link href="/update-profile" style={{color:'white'}}>Hi {first_name}! </Nav.Link>
+                                <Nav.Link href="/profile" style={{color:'white'}}>Hi {first_name}! </Nav.Link>
                             ) : (
                                 <Nav.Link href="/login" style={{color:'white'}}>
                                     <FontAwesomeIcon icon={faUser} fixedWidth />

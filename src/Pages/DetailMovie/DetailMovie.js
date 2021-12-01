@@ -15,6 +15,7 @@ import useUpdateReview from "../../Hooks/useUpdateReview";
 import useDeleteReview from "../../Hooks/useDeleteReview";
 import Loading from "../../Components/Loading/Loading";
 
+
 function DetailMovie() {
 
     const { id } = useParams();
@@ -42,11 +43,10 @@ function DetailMovie() {
         })
     }
 
-    const onUpdateReview = (id,val) => {
+    const onUpdateReview = (val) => {
         updateReview({
             variables:{
-                id,
-                ...val
+                ...val,
             }
         })
     }
@@ -63,7 +63,7 @@ function DetailMovie() {
         if (dataMyReview) {
             setMyReview(dataMyReview.review[0]);
         }
-    }, [dataMoviesById, dataMovieComment, dataMyReview]);
+    }, [dataMovieComment, dataMyReview]);
 
 
     if (errorMovieComment) {
@@ -84,7 +84,7 @@ function DetailMovie() {
     return (
         <div>
             <NavigationBar />
-            <div style={{ backgroundColor: '#1A1A1A' }}>
+            <div style={{ backgroundColor: '#1a1a1a' }}>
                 <Container>
 
                     {loadingMoviesById ? (
