@@ -81,6 +81,8 @@ function DetailMovie() {
         return <h1>Error</h1>
     }
 
+    console.log("dataMoviesById",dataMoviesById);
+
     return (
         <div>
             <NavigationBar />

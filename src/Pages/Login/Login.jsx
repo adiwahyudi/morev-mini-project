@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import { useNavigate } from 'react-router'
 import { Container,Form,Button, Row,Col} from 'react-bootstrap'
 import NavigationBar from '../../Components/Navbar/NavigationBar'
@@ -9,12 +9,24 @@ export default function Login() {
 
     const navigate = useNavigate();
 
-    const {getMyInformationLogin,data,error} = useGetMyInformationLogin();
+    const {getMyInformationLogin,data,loading,error} = useGetMyInformationLogin();
 
     const [input,setInput] = useState({
         email:"",
         password:""
     })
+
+    useEffect(() => {
+        if (!loading && data) {
+          if (data.user.length === 0) {
+            alert("Wrong email or password")
+          } else {
+            localStorage.setItem("user_id", data?.user[0].id)
+            localStorage.setItem("user_id", data?.user[0].first_name)
+            navigate("/");
+          }
+        }
+    }, [data, loading, navigate]);
 
     const onChange = (e) => {
         if (e.target) {
@@ -31,15 +43,8 @@ export default function Login() {
             console.log(error);
         }
     }
-    if (data !== undefined) {
-        localStorage.setItem("user_id",data?.user[0].id)
-        localStorage.setItem("first_name",data?.user[0].first_name)
-        navigate("/")
-        // localStorage.setItem("last_name",data?.user[0].last_name)
-        // localStorage.setItem("user_id",data?.user[0].id)
-        // localStorage.setItem("user_id",data?.user[0].id)
-    }
-    
+
+
     return (
             <div className={styles.body} style={{color:"white",backgroundColor:"#1a1a1a"}}>
                 <Container className="pt-5">
@@ -47,7 +52,7 @@ export default function Login() {
                     <Row>
                     <h1 className="text-center mb-5 pt-5 fw-bold">Welcome to MO-REV!</h1>
                         <Col md={{ span: 6, offset: 3 }}>
-                            <Form onSubmit={onSubmit} >
+                            <Form onSubmit={onSubmit}>
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
                                     <Form.Label>Email address</Form.Label>
                                     <Form.Control 
@@ -69,8 +74,8 @@ export default function Login() {
                                     />
                                 </Form.Group>
                                 <div className="justify-content-center pb-5">
-                                    <Button className={`${styles['btn-suc']} d-flex justify-content-center primary`} variant="success" type="submit" onClick={getMyInformationLogin}> Login </Button>
-                                    
+                                    <Button className={`${styles['btn-suc']} d-flex justify-content-center primary`} variant="success" type="submit" > Login </Button>
+                                    {/* onClick={getMyInformationLogin} */}
                                 </div>
                             </Form>
                         </Col>
