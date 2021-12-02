@@ -37,14 +37,19 @@ export default function Login() {
             })
         }
     }
-
+    const valid = input.email === "" || input.password === ""
     const onSubmit = (e) => {
-        e.preventDefault();
-        getMyInformationLogin(
-            {variables: {...input}}
-        )
-        if(error) {
-            console.log(error);
+        if (!valid){
+            e.preventDefault();
+            getMyInformationLogin(
+                {variables: {...input}}
+            )
+            if(error) {
+                console.log(error);
+            }
+            alert("Login Success")
+        } else {
+            alert("Field Missing")
         }
     }
 

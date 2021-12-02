@@ -23,7 +23,7 @@ export default function NavigationBar() {
                     <Navbar.Collapse id='responsive-navbar-nav'>
                         <Nav className="ms-auto">
                             <Nav.Link href="/" style={{color:'white'}}>Home</Nav.Link>
-                            <Nav.Link href="#toprated" style={{color:'white'}}>Top Rated</Nav.Link>
+                            <Nav.Link href="#top-rated" style={{color:'white'}}>Top Rated</Nav.Link>
                             <Nav.Link href="/list-movies" style={{color:'white'}}>List Movies</Nav.Link>
                             {localStorage.getItem("user_id") !==  null ? (
                                 <Nav.Link href="/profile" style={{color:'white'}}>Hi {first_name}! </Nav.Link>

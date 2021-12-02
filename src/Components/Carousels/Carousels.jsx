@@ -9,7 +9,7 @@ export default function Carousels(props) {
     const {featured} = props;
     
     return (
-        <div className="mb-4 carousel-wrapper">
+        <div className="carousel-wrapper">
             <Carousel 
                 showArrows={true} 
                 interval={5000} 

@@ -2,12 +2,11 @@ import { useState,useEffect } from "react";
 import { Container } from "react-bootstrap";
 import CardFilm from "../../Components/Card/CardFilm";
 import Carousels from "../../Components/Carousels/Carousels";
-import Footer from "../../Components/Footer/Footer";
-import Judul from "../../Components/Judul/Judul";
 import NavigationBar from "../../Components/Navbar/NavigationBar";
 import useGet3Featured from "../../Hooks/useGet3FeaturedMovies";
 import useGetTop5Movies from '../../Hooks/useGet5TopRatedMovies'
 import Loading from "../../Components/Loading/Loading";
+import NewFooter from "../../Components/Footer/Footer";
 
 function Home(){
     const {dataTop5,loadingTop5,errorTop5} = useGetTop5Movies()
@@ -34,7 +33,7 @@ function Home(){
             <NavigationBar/>
             <div style={{backgroundColor:'#1A1A1A',paddingBottom:10}}>
                 <Container>
-                    <Judul judul="Featured Movie"/>
+                    <h3 className="pt-5 mt-3" style={{color:'white'}}>Featured Movie</h3>
                     {loadingFeatured3 ? (
                         <Loading/>
                     ) : (
@@ -42,18 +41,19 @@ function Home(){
                             featured={featured3}
                         />
                     )}
-                    <h3 className="px-3" style={{color:'white'}}>Top Rated Movie</h3>
-                    {loadingTop5 ? (
-                        <Loading/>
-                    ) : (
-                        <CardFilm 
-                            films={top5}
-                            id="toprated"
-                        />   
-                    )}
+                    <div className="" id="top-rated">
+                        <h3 className="px-3 mb-3" style={{color:'white'}}>Top Rated Movie</h3>
+                        {loadingTop5 ? (
+                            <Loading/>
+                        ) : (
+                            <CardFilm 
+                                films={top5}
+                            />   
+                        )}
+                    </div>
                 </Container>
+                <NewFooter/>
             </div>
-            <Footer/>
         </div>
     )
 }

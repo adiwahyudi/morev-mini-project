@@ -34,24 +34,20 @@ export default function UserDetail(props) {
             })
         }
     }
-    
+    const valid = newData.email === "" || newData.first_name === "" || newData.last_name === "" || newData.password === "" || newData.avatar === ""
     const onEdit = () => {
         if (disable === false) {
-            alert("simpan")
-            onUpdateUser({
-                ...newData
-            })
-            if (loadingUpdateUser) {
-                <Loading/>
+            if (!valid) {
+                alert("Update Success")
+                onUpdateUser({
+                    ...newData
+                })
+                if (loadingUpdateUser) {
+                    <Loading/>
+                }
+            } else {
+                alert("Field Missing")
             }
-            setNewData({
-                id:id_user,
-                first_name:"",
-                last_name:"",
-                email:"",
-                password:"",
-                avatar:""
-            })
         }
         setDisable(!disable)
     }
