@@ -7,6 +7,7 @@ import ListMovies from './Pages/ListMovies/ListMovie';
 import Login from './Pages/Login/Login';
 import Profile from './Pages/Profile/Profile';
 import Register from './Pages/Register/Register';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
 			<Route path="/login" exact element={<Login/>} />
 			<Route path="/register" exact element={<Register/>} />
 			<Route path="/profile" exact element={<Profile/>} />
+			<Route path="*" exact element={<NotFound/>} />
 		</Routes>
 	</BrowserRouter>
   );

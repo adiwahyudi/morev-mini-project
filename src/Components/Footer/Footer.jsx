@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './Footer.module.css'
 import {Link} from 'react-router-dom'
+import FooterImg from '../../Images/morev-footer.png'
 
 export default function Footer() {
     return (
@@ -9,12 +10,27 @@ export default function Footer() {
                 <div className={style.container}>
                     <div className={style.row}>
                     <div className={style["footer-col"]}>
-                        <h4>Company</h4>
+                        {/* <img
+                            src={FooterImg}
+                            height="75"
+                            width="250"
+                            alt=""
+                            />
+                        <h4>© MO-REV 2021</h4>
+                        {/* <h4>Company</h4> */}
                         <ul>
-                        <li><Link to="/">About us</Link></li>
-                        <li><Link to="/">Our services</Link></li>
-                        <li><Link to="/">Privacy policy</Link></li>
-                        <li><Link to="/">Affiliate program</Link></li>
+                            <li>
+                                <img
+                                    src={FooterImg}
+                                    height="75"
+                                    width="250"
+                                    alt=""
+                                />
+                            </li>
+                            {/* <li><Link to="/">About us</Link></li>
+                            <li><Link to="/">Our services</Link></li>
+                            <li><Link to="/">Privacy policy</Link></li>
+                            <li><Link to="/">Affiliate program</Link></li> */}
                         </ul>
                     </div>
                     <div className={style["footer-col"]}>
@@ -27,15 +43,6 @@ export default function Footer() {
                         <li><Link to="/">Payment options</Link></li>
                         </ul>
                     </div>
-                    {/* <div className={style["footer-col"]}>
-                        <h4>online shop</h4>
-                        <ul>
-                        <li><Link to="/">Watch</Link></li>
-                        <li><Link to="/">Bag</Link></li>
-                        <li><Link to="/">Shoes</Link></li>
-                        <li><Link to="/">Dress</Link></li>
-                        </ul>
-                    </div> */}
                     <div className={style["footer-col"]}>
                         <h4>follow us</h4>
                         <div className={style["social-links"]}>
