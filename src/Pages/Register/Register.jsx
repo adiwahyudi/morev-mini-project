@@ -36,17 +36,24 @@ export default function Register() {
             })
         }
     }
+    const valid = data.email === "" || data.first_name === "" || data.last_name === "" || data.password === ""
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        navigate("/login")
-        if(loadingCreateUser) {
-            <Loading/>
+        if (!valid) {
+            e.preventDefault()
+            navigate("/login")
+            console.log("data",data);
+            if(loadingCreateUser) {
+                <Loading/>
+            }
+            onCreateUser({ 
+                ...data,
+            })
+            alert("Register Success")
+
+        } else {
+            alert("Field Missing")
         }
-        onCreateUser({ 
-            ...data,
-        })
-        alert("sucess")
     }
     return (
         <div className={styles.isi}>
