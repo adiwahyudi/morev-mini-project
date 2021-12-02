@@ -31,3 +31,12 @@
   font-weight: 100;
   font-size: 16px;
 }
+
+.circle-button {
+  border-radius: 100%;
+  margin-right: 7px;
+}
+
+.list-info-star {
+  margin-left: 9px;
+}

@@ -1,7 +1,6 @@
 import {useState,useEffect} from 'react'
 import { Col, Container, Row  } from "react-bootstrap"
 import FooterBasic from "../../Components/Footer/FooterBasic"
-import Judul from "../../Components/Judul/Judul"
 import NavigationBar from "../../Components/Navbar/NavigationBar"
 import SearchBar from "../../Components/SearchBar/SearchBar"
 import useGetAllMovies from '../../Hooks/useGetAllMovies'
@@ -35,13 +34,12 @@ function ListMovies() {
                 <Container>
                     <Row className="mt-2 d-flex">
                         <Col xl={5}>
-                            {/* <Judul judul="List Movies"/> */}
                             <h3 className="mt-5" style={{color:"white"}}>List Movies</h3>
                         </Col>
                         <Col xl={7} className="justify-content-end">
                             <div className="ms-auto text-end mt-5">
                                 <select className="dropdown-sort">
-                                    <option value=""> Ascending </option>
+                                    <option value="" > Ascending </option>
                                     <option value=""> Descending </option>
                                     <option value=""> Rating </option>
                                     <option value=""> Likes </option>
@@ -49,7 +47,9 @@ function ListMovies() {
                             </div>
                         </Col>
                     </Row>
-                    <SearchBar/>
+                    <Row>
+                        <SearchBar/>
+                    </Row>
                     {loadingAllMovies ? (
                         <Loading/>
                     ) : (

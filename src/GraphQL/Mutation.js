@@ -41,7 +41,25 @@ const UpdateUser = gql`
         }
     } 
 `
-export {InsertReview,DeleteReview,UpdateReview,UpdateUser}
+
+const UpdateLike = gql`
+    mutation UpdateLike($id: Int!, $likes: Int!) {
+        update_movies_by_pk(pk_columns: {id: $id}, _set: {likes: $likes}) {
+        likes
+        id
+        name
+        }
+    }
+`
+
+const CreateUser = gql`
+    mutation MyMutation($first_name: String, $last_name: String, $email: String, $password: String, $avatar: String) {
+        insert_user(objects: {last_name: $last_name, email: $email, password: $password, first_name: $first_name, avatar: $avatar}) {
+            affected_rows
+        }
+    }
+`
+export {InsertReview,DeleteReview,UpdateReview,UpdateUser,UpdateLike,CreateUser}
 
     // mutation UpdateReview($id: Int!, $rating: Int!, $review: String) {
     //     update_review_by_pk(pk_columns: {id: $id}, _set: {rating: $rating, review: $review}) {

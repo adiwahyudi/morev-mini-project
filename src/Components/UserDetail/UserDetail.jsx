@@ -37,7 +37,6 @@ export default function UserDetail(props) {
     
     const onEdit = () => {
         if (disable === false) {
-            console.log("newData",newData);
             alert("simpan")
             onUpdateUser({
                 ...newData
@@ -59,7 +58,7 @@ export default function UserDetail(props) {
 
     const onChangeImage = (e) => {
         const file = e.target.files[0];
-        const fileRef = ref(storage, file.name);
+        const fileRef = ref(storage,`avatar_user/${file.name}`);
         uploadBytes(fileRef, file).then(() => {
           getDownloadURL(fileRef).then((url) => {
             setNewData({ ...newData, avatar: url });
@@ -88,6 +87,7 @@ export default function UserDetail(props) {
                             width='200'
                             height='200'
                             alt="avatar-user"
+                            style={{objectFit:"cover"}}
                         />
                         <Form.Group controlId="formFile" className="mt-3 mb-3">
                             <Form.Control

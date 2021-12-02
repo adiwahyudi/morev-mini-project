@@ -17,7 +17,6 @@ function Profile() {
     const {updateUser,loadingUpdateUser} = useUpdateUser()
 
     const onUpdateUser = (data) => {
-        console.log("onUpdateUser",data);
         updateUser({
             variables:{
                 ...data,

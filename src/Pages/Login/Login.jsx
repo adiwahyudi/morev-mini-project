@@ -2,8 +2,9 @@ import React, {useState,useEffect} from 'react'
 import { useNavigate } from 'react-router'
 import { Container,Form,Button, Row,Col} from 'react-bootstrap'
 import NavigationBar from '../../Components/Navbar/NavigationBar'
-import styles from './Login.module.css'
 import useGetMyInformationLogin from '../../Hooks/useGetMyInformationLogin'
+import { Link } from 'react-router-dom'
+import styles from './Login.module.css'
 
 export default function Login() {
 
@@ -18,13 +19,13 @@ export default function Login() {
 
     useEffect(() => {
         if (!loading && data) {
-          if (data.user.length === 0) {
-            alert("Wrong email or password")
-          } else {
-            localStorage.setItem("user_id", data?.user[0].id)
-            localStorage.setItem("first_name", data?.user[0].first_name)
-            navigate("/");
-          }
+            if (data.user.length === 0) {
+                alert("Wrong email or password")
+            } else {
+                localStorage.setItem("user_id", data?.user[0].id)
+                localStorage.setItem("first_name", data?.user[0].first_name)
+                navigate("/");
+            }
         }
     }, [data, loading, navigate]);
 
@@ -47,7 +48,6 @@ export default function Login() {
         }
     }
 
-
     return (
             <div className={styles.body} style={{color:"white",backgroundColor:"#1a1a1a"}}>
                 <Container className="pt-5">
@@ -55,7 +55,7 @@ export default function Login() {
                     <Row>
                     <h1 className="text-center mb-5 pt-5 fw-bold">Welcome to MO-REV!</h1>
                         <Col md={{ span: 6, offset: 3 }}>
-                            <Form onSubmit={onSubmit}>
+                            <Form>
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
                                     <Form.Label>Email address</Form.Label>
                                     <Form.Control 
@@ -76,8 +76,11 @@ export default function Login() {
                                         className={styles['form-control']}
                                     />
                                 </Form.Group>
-                                <div className="justify-content-center pb-5">
-                                    <Button className={`${styles['btn-suc']} d-flex justify-content-center primary`} variant="success" type="submit" > Login </Button>
+                                <div className="text-center" style={{backgroundColor:"white"}}>
+                                    <Link to="/register">
+                                        <Button className={`${styles['btn-suc']} primary float-start`} variant="secondary"> Register </Button>
+                                    </Link>
+                                    <Button className={`${styles['btn-suc']} primary float-end`} variant="success" type="submit" onClick={onSubmit}> Login </Button>
                                 </div>
                             </Form>
                         </Col>

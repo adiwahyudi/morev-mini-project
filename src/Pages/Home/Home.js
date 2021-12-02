@@ -10,7 +10,6 @@ import useGetTop5Movies from '../../Hooks/useGet5TopRatedMovies'
 import Loading from "../../Components/Loading/Loading";
 
 function Home(){
-
     const {dataTop5,loadingTop5,errorTop5} = useGetTop5Movies()
     const {dataFeatured3,loadingFeatured3,errorFeatured3} = useGet3Featured()
 
@@ -30,13 +29,6 @@ function Home(){
         return <h1>Error</h1>
     }
 
-    var settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-      };
     return (
         <div>
             <NavigationBar/>
