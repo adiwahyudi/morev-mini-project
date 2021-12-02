@@ -5,12 +5,17 @@ import {faSearch } from '@fortawesome/free-solid-svg-icons'
 
 export default function SearchBar() {
     return (
-        <div className={`${styles['search-bar']} px-3`}>
+        <div className={`${styles['search-bar']} px-3 pb-4`}>
           <form className="d-flex" >
               <input 
-              type="text"
-              placeholder="Search your movie here.."/>
-            <FontAwesomeIcon icon={faSearch} color="white" size="2x" onClick={""} style={{marginLeft:10}}/>
+                type="text"
+                placeholder="Search your movie here.."/>
+            <FontAwesomeIcon 
+              icon={faSearch} 
+              color="white" 
+              size="2x" 
+              style={{marginLeft:10}}
+            />
           </form>
         </div>
     )

@@ -6,10 +6,12 @@
 }
 
 input {
+  padding-left: 10px;
   width: 500px;
-  background-color: transparent;
-  border-radius: 10px;
-  border: black;
+  background-color: transparent !important;
+  color: white;
+  border-radius: 15px;
+  border: 1px solid;
 }
 
 input::placeholder {

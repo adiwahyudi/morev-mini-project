@@ -1,21 +1,16 @@
 import React from 'react'
-import { Carousel } from "react-bootstrap";
-import LogoImg from "../../Images/thegodfather-banner.jpg"
+import styles from './CarouselsItems.module.css'
 
-export default function CarouselsItem() {
+export default function CarouselsItem(props) {
+    const {banner,name,year} = props;
     return (
-        <Carousel.Item>
-            <img
-            className="d-block rounded m-auto"
-            width='1050'
-            height='550'
-            src={LogoImg}
-            alt="abd"
+        <div className={styles.caro}>
+            <img 
+                src={banner}
+                alt={name}
+                className={styles['ini-gambar']}
             />
-            <Carousel.Caption>
-                <h3>The Godfather</h3>
-                <p>1972</p>
-            </Carousel.Caption>
-        </Carousel.Item>
+            <p className="legend">{name} - {year}</p>
+        </div>
     )
 }

@@ -1,15 +1,14 @@
 .judulAtas {
   color: white;
 }
-.pembungkusCard {
+/* .pembungkusCard {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   padding-bottom: 40px;
-}
+} */
 
 .cardItem {
-  /* width: 13rem; */
   border: #1a1a1a;
   background-color: #1a1a1a !important;
 }
@@ -18,4 +17,25 @@
 .cardTahun {
   color: white;
   text-align: center;
+}
+
+.img-poster {
+  width: 214px;
+  height: 307px;
+}
+
+.cardTitle {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+@media (max-width: 768px) {
+  .cardTitle {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cardTitle {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

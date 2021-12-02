@@ -1,29 +1,34 @@
 import React from 'react'
-import { Carousel } from 'react-bootstrap'
 import CarouselsItem from './CarouselsItem'
-import LogoImg from "../../Images/thegodfather-banner.jpg"
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+import { Link } from 'react-router-dom';
 
-export default function Carousels() {
+export default function Carousels(props) {
+
+    const {featured} = props;
+    
     return (
-        <div className="mb-4">
-            <Carousel>  
-                {[...Array(3)].map(item => {
-                    return (
-                        <Carousel.Item>
-                            <img
-                            className="d-block rounded m-auto"
-                            width='1050'
-                            height='550'
-                            src={LogoImg}
-                            alt="abd"
-                            />
-                        <Carousel.Caption>
-                            <h3>The Godfather</h3>
-                            <p>1972</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    )
-                })}
+        <div className="mb-4 carousel-wrapper">
+            <Carousel 
+                showArrows={true} 
+                interval={5000} 
+                autoPlay={true} 
+                infiniteLoop={true} 
+                swipeable={true} 
+                showStatus={false}
+                >  
+                {featured.map((item) => (
+                    <Link to={`detail-movie/${item.id}`}>
+                        <CarouselsItem 
+                            key={item.id}
+                            id={item.id}
+                            banner={item.banner}
+                            name={item.name}
+                            year={item.year}
+                        />
+                    </Link>
+                ))}
             </Carousel>
         </div>  
     )
