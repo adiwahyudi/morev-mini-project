@@ -29,6 +29,7 @@ function Home(){
     }
 
     return (
+        
         <div>
             <NavigationBar/>
             <div style={{backgroundColor:'#1A1A1A',paddingBottom:10}}>

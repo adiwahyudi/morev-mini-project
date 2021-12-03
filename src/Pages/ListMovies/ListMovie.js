@@ -9,6 +9,7 @@ import Loading from '../../Components/Loading/Loading'
 import "./ListMovie.css"
 
 function ListMovies() {
+    
     const {
         dataAllMovies,
         loadingAllMovies,
@@ -16,16 +17,28 @@ function ListMovies() {
     } = useGetAllMovies()
 
     const [movie,setMovie] = useState([]);
-
+    const [input,setInput] = useState('')
+    
     useEffect(() => {
         if (dataAllMovies) {
             setMovie(dataAllMovies.movies);
         }
     }, [dataAllMovies]);
 
+
     if (errorAllMovies) {
         return <h1>Error</h1>
     }
+
+    const onChangeInput = (e) => {
+        if (e.target) {
+            setInput(e.target.value)
+        }
+    }
+
+    const filteredSearch = movie.filter(data => {
+        return data?.name.toLowerCase().includes(input.toLowerCase());
+    });
 
     return(
         <>
@@ -48,12 +61,12 @@ function ListMovies() {
                         </Col>
                     </Row>
                     <Row>
-                        <SearchBar/>
+                        <SearchBar onChangeInput={onChangeInput}/>
                     </Row>
                     {loadingAllMovies ? (
                         <Loading/>
                     ) : (
-                        <CardFilm films={movie}/>    
+                        <CardFilm films={filteredSearch}/>    
                     )}
                 </Container>
                 <FooterBasic/>

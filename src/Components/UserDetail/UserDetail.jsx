@@ -65,13 +65,11 @@ export default function UserDetail(props) {
 
     const logOut = (e) => {
         e.preventDefault()
-        console.log("cabs");
         localStorage.removeItem("user_id");
         localStorage.removeItem("first_name");
         navigate("/")
     }
 
-    console.log(newData);
     return (
         <>
             <div className="" style={{paddingTop:75}}>
@@ -90,7 +88,7 @@ export default function UserDetail(props) {
                                 name="avatar"
                                 onChange={onChangeImage}
                                 disabled={disable}  
-                                type="file" 
+                                type="file"
                             />
                         </Form.Group>
                     </Col>
