@@ -120,4 +120,70 @@ const GetMyInformationById = gql`
     }
   }
 `
-export {GetAllMovies,Get5TopRatedMovies,Get3FeaturedMovies,GetMoviesById,Get3CommentByMovieId,GetMyReview,GetMyInformationLogin,GetMyInformationById}
+
+const GetByAsc = gql`
+  query Asc {
+    movies(order_by: {year: asc}) {
+      banner
+      genre
+      id
+      isFeatured
+      likes
+      name
+      poster
+      rating
+      synopsis
+      year
+    }
+  }
+`
+const GetByDesc = gql`
+query Asc {
+  movies(order_by: {year: desc}) {
+    banner
+    genre
+    id
+    isFeatured
+    likes
+    name
+    poster
+    rating
+    synopsis
+    year
+  }
+}
+`
+
+const GetByLikes = gql`
+query ByLikes {
+  movies(order_by: {likes: desc}) {
+    banner
+    genre
+    id
+    isFeatured
+    likes
+    name
+    poster
+    rating
+    synopsis
+    year
+  }
+}
+`
+const GetByRating = gql`
+query ByRating {
+  movies(order_by: {rating: desc}) {
+  	banner
+    genre
+    id
+    isFeatured
+    likes
+    name
+    poster
+    rating
+    synopsis
+    year
+  }
+}
+`
+export {GetAllMovies,Get5TopRatedMovies,Get3FeaturedMovies,GetMoviesById,Get3CommentByMovieId,GetMyReview,GetMyInformationLogin,GetMyInformationById,GetByAsc,GetByDesc,GetByLikes,GetByRating}
